@@ -15,29 +15,23 @@ void display_array(int* array, int array_size) {
 }
 
 int divide_array(int* array, int left_index, int right_index) {
-    int pivot_index{ 0 };
+    int pivot_index{ left_index };
     int pivot_value{ array[pivot_index] };
     int middle_index{ pivot_index };
 
     for (int i = pivot_index + 1; i <= right_index; i++) {
         if (array[i] < pivot_value) {
             middle_index = middle_index + 1;
-            // std::swap(array[middle_index], array[i]);
-            int temp = array[middle_index];
-            array[middle_index] = array[i];
-            array[i] = temp;
+            std::swap(array[middle_index], array[i]);
         }
     }
-    // std::swap(array[pivot_index], array[middle_index]);
-    int temp = array[middle_index];
-    array[middle_index] = array[pivot_index];
-    array[pivot_index] = temp;
-
+    std::swap(array[pivot_index], array[middle_index]);
+    
     return middle_index;
 }
 
 void quicksort(int* array, int left_index, int right_index) {
-    if (right_index - left_index >= 1) {
+    if (left_index < right_index) {
         int middle_index{ divide_array(array, left_index, right_index) };
         quicksort(array, left_index, middle_index - 1);
         quicksort(array, middle_index + 1, right_index);
@@ -56,3 +50,4 @@ int main() {
 
     return 0;
 }
+
