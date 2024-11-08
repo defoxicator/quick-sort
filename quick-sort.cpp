@@ -15,7 +15,7 @@ void display_array(int* array, int array_size) {
 }
 
 int divide_array(int* array, int left_index, int right_index) {
-    int pivot_index{ right_index };
+    int pivot_index{ left_index };
     int pivot_value{ array[pivot_index] };
     int middle_index{ pivot_index };
 
