@@ -46,6 +46,7 @@ int main() {
 
     quicksort(array, 0, array_size - 1);
 
+    std::cout << "\t\t||\n\t\t\\/\n";
     display_array(array, array_size);
 
     return 0;
